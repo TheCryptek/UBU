@@ -16,13 +16,17 @@ print ('\nName of the zip file you prefer?')
 print ('Example: Backup.zip')
 backZip = raw_input('> ') # The name of the zip file specified by the user
 print ('\nBackup started...')
+dest = backDevice + '/BackUp'
+
 if not os.path.exists(backDevice + '/BackUp'): # If the BackUp folder doesn't exist on the device then
-	os.mkdir(backDevice + 'BackUp') # Make the backup folder on usb device
-backZip = zipfile.ZipFile(backZip, 'w') # Not sure what to say for lines 21 - 26
+	os.mkdir(backDevice + 'BackUp') # Make the backup folder on specified back up device
+
+bkZip = zipfile.ZipFile(backZip, 'w') # Not sure what to say for lines 26 - 31
 for dirname, subdirs, files in os.walk(backUp): 
-	backZip.write(dirname)
+	bkZip.write(dirname)
 	for filename in files:
-		backZip.write(os.path.join(dirname, filename))
-	backZip.close()
-shutil.move(backZip, backDevice + '/BackUp') # Move the zip files created in working directory to the specified back up device -[ Something is wrong with this can't figure out what ]-
-print('Backup finished.')
+		bkZip.write(os.path.join(dirname, filename))
+	bkZip.close()
+
+shutil.move(backZip, dest) # Moves the zip file from the work directory to the specified back up device.
+print('\nBackup finished, stored at ' + dest + '/' + backZip)
