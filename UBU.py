@@ -23,6 +23,9 @@ dest = backDevice + '/BackUp'
 if not os.path.exists(backDevice + '/BackUp'): # If the BackUp folder doesn't exist on the device then
 	os.mkdir(backDevice + 'BackUp') # Make the backup folder on specified back up device
 
+if os.path.exists(os.path.join(dest, backZip)):
+	os.remove(os.path.join(dest, backZip))
+
 bkZip = zipfile.ZipFile(os.path.join(dest, backZip), 'w') # Not sure what to say for lines 26 - 31
 
 for dirname, subdirs, files in os.walk(backUp):
