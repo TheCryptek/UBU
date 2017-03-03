@@ -5,6 +5,4 @@ Please try to keep this list organized alphabetically by first name.
 
 EXAMPLE: John Doe <john@doe.com>
 
-Name | GitHub Username  | Email | GPG Key ID | GPG Key Fingerprint
----- | --------------- | ----- | ---------- | -------------------
-Brandon Conley | TheCryptek | bjconley@aerialdevs.com | 2B5F3234 | 4955 EEB4 5B37 19E5 CADF 0EC3 7032 409B 2B5F 3234
+Brandon Conley <bjconley@aerialdevs.com>
