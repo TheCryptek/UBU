@@ -1,4 +1,10 @@
-# Version 0.1
+# -----------------------------------------------------
+# --[ name       : USB Backup Utility
+# --[ description: A simple python backup script
+# --[ author     : TheCryptek
+# --[ github page: https://github.com/TheCryptek/UBU
+# --[ Version    : 0.3
+# -----------------------------------------------------
 
 import os
 import sys
