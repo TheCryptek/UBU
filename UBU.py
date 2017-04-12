@@ -10,7 +10,9 @@ import os
 import sys
 import zipfile
 import traceback
-import pizza
+import cryp
+
+cryp.clear()
 
 # The Welcome screen.
 
@@ -26,26 +28,35 @@ USB Backup Utility
 Created by TheCryptek
 """
 
+raw_input("Press enter to continue...")
+cryp.clear()
+
 # Obtain the directory the user wants to back up
 print "\nWhat directory would you like to back up?"
 print "Windows: C:/users/user/Desktop/folder"
 print "Linux: /home/user/Desktop/Folder"
 backUp = raw_input("> ")
+cryp.clear()
 
 # Obtain the device the user wants to use
 print "\nWhere would you like to back these files up at?"
 print "Windows: E:/"
 print "Linux: /media/user/device/"
 backDevice = raw_input("> ")
+cryp.clear()
 
 # Obtain the name of the zip file the user wants to use
 print "\nName of the zip file you prefer?"
 print "Example: Backup.zip"
 backZip = raw_input("> ")
+cryp.clear()
 
 # Notify the user that the script has started.
 print "\nBackup started..."
 dest = backDevice + "/BackUp"
+cryp.space()
+raw_input("Press enter to continue...")
+cryp.clear()
 
 # Check if the backup folder exists, if not, then create it.
 if not os.path.exists(backDevice + '/BackUp'):
@@ -66,3 +77,6 @@ bkZip.close()
 
 # Notify the user that the backup has finished and where it was saved.
 print "\nBackup finished, stored at " + dest + "/" + backZip
+cryp.space()
+raw_input("Press enter to continue...")
+cryp.clear()
