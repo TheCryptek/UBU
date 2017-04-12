@@ -10,6 +10,7 @@ import os
 import sys
 import zipfile
 import traceback
+import pizza
 
 # The Welcome screen.
 
@@ -55,13 +56,14 @@ if not os.path.exists(backDevice + '/BackUp'):
 if os.path.exists(os.path.join(dest, backZip)):
 	os.remove(os.path.join(dest, backZip))
 
+pizza.zip()
 # Create the zip file and place it in the user specified device.
-bkZip = zipfile.ZipFile(os.path.join(dest, backZip), 'w')
-for dirname, subdirs, files in os.walk(backUp):
-	bkZip.write(dirname)
-	for filename in files:
-		bkZip.write(os.path.join(dirname, filename))
-bkZip.close()
+#bkZip = zipfile.ZipFile(os.path.join(dest, backZip), 'w')
+#for dirname, subdirs, files in os.walk(backUp):
+#	bkZip.write(dirname)
+#	for filename in files:
+#		bkZip.write(os.path.join(dirname, filename))
+#bkZip.close()
 
 # Notify the user that the backup has finished and where it was saved.
 print "\nBackup finished, stored at " + dest + "/" + backZip
