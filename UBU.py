@@ -41,7 +41,7 @@ cryp.clear()
 # Obtain the device the user wants to use
 print "\nWhere would you like to back these files up at?"
 print "Windows: E:/"
-print "Linux: /media/user/device/"
+print "Linux: /media/user/device"
 backDevice = raw_input("> ")
 cryp.clear()
 
@@ -60,7 +60,7 @@ cryp.clear()
 
 # Check if the backup folder exists, if not, then create it.
 if not os.path.exists(backDevice + '/BackUp'):
-	os.mkdir(backDevice + "BackUp")
+	os.mkdir(backDevice + "/BackUp")
 
 # Check if the specified zip file exists, if so. Delete it.
 
@@ -70,9 +70,12 @@ if os.path.exists(os.path.join(dest, backZip)):
 # Create the zip file and place it in the user specified device.
 bkZip = zipfile.ZipFile(os.path.join(dest, backZip), 'w')
 for dirname, subdirs, files in os.walk(backUp):
-	bkZip.write(dirname)
+	#bkZip.write(dirname[len(backUp):])
 	for filename in files:
-		bkZip.write(os.path.join(dirname, filename))
+		path = os.path.join(dirname, filename)
+		#print(path, backUp)
+		bkZip.write(path, os.path.join(backUp.split(',')[-1], path[len(backUp):]))
+		#bkZip.write(os.path.join(dirname, filename))
 bkZip.close()
 
 # Notify the user that the backup has finished and where it was saved.
